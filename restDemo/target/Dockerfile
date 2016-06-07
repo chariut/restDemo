@@ -1,5 +1,10 @@
-FROM tomcat:8-jre8
+FROM maven:3-jdk-8
 
-EXPOSE 8080
-ADD restDemo/target/restDemo-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/restDemo-0.0.1-SNAPSHOT.war
-CMD ["catalina.sh", "run"]
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+ONBUILD ADD . /usr/src/app
+
+ONBUILD RUN mvn install
+
+ONBUILD CMD ["java","-jar","target/restDemo.jar"]

@@ -15,6 +15,7 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <!--  
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.6</version>
@@ -23,7 +24,26 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+      -->
+      <plugin>
+    <groupId>com.spotify</groupId>
+    <artifactId>docker-maven-plugin</artifactId>
+    <version>0.4.5</version>
+        <configuration>
+            <imageName>springdocker</imageName>
+            <baseImage>java</baseImage>
+            <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+            <resources>
+                <resource>
+                    <targetPath>/</targetPath>
+                    <directory>${project.build.directory}</directory>
+                    <include>${project.build.finalName}.jar</include>
+                </resource>
+            </resources>
+        </configuration>
+    </plugin>
     </plugins>
+    <finalName>restDemo</finalName>
   </build>
   <dependencies>
   	<dependency>
