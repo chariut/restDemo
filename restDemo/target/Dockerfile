@@ -1,10 +1,8 @@
-FROM maven:3-jdk-8
+FROM tomcat:8-jre8
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+MAINTAINER "Chari T <govindachari@gmail.com>"
 
-ONBUILD ADD . /usr/src/app
+ADD settings.xml /usr/local/tomcat/conf/
+ADD tomcat-users.xml /usr/local/tomcat/conf/
 
-ONBUILD RUN mvn install
 
-ONBUILD CMD ["java","-jar","target/restDemo.jar"]

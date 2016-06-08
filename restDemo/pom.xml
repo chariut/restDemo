@@ -26,6 +26,19 @@
       </plugin>
       -->
       <plugin>
+	 <groupId>org.apache.tomcat.maven</groupId>
+	 <artifactId>tomcat7-maven-plugin</artifactId>
+	 <version>2.2</version>
+	 <configuration>
+	  <url>http://localhost:8080/manager/text</url>
+	  <server>TomcatServer</server>
+	  <path>/sample</path>
+	  <username>chariut</username>
+	  <password>password</password>
+	 </configuration>
+	</plugin>
+	<!--  
+      <plugin>
     <groupId>com.spotify</groupId>
     <artifactId>docker-maven-plugin</artifactId>
     <version>0.4.5</version>
@@ -42,8 +55,9 @@
             </resources>
         </configuration>
     </plugin>
+    -->
     </plugins>
-    <finalName>restDemo</finalName>
+    
   </build>
   <dependencies>
   	<dependency>
