@@ -32,7 +32,7 @@
 	 <configuration>
 	  <url>http://localhost:8080/manager/text</url>
 	  <server>TomcatServer</server>
-	  <path>/sample</path>
+	  <path>/restDemo</path>
 	  <username>chariut</username>
 	  <password>password</password>
 	 </configuration>

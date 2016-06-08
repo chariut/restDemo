@@ -5,4 +5,6 @@ MAINTAINER "Chari T <govindachari@gmail.com>"
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
 
+ONBUILD RUN mvn tomcat7:deploy
+
 
