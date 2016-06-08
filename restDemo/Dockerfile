@@ -1,4 +1,4 @@
-FROM java:8-jre8
+FROM java:8
 
 
 CMD mvn package
