@@ -1,6 +1,5 @@
-FROM java:8
+FROM maven:3.2-jdk-7-onbuild
 
-
-CMD mvn package
+CMD mvn clean install
 
 
