@@ -65,7 +65,7 @@
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
-    		   <baseImage>tomcat:8-jre8</baseImage>
+    		   <baseImage>tomcat:7-jre7</baseImage>
     		   <env>
       				<JAVA_OPTS>-Djava.security.egd=file:/dev/chariut</JAVA_OPTS>
     		   </env>
