@@ -76,7 +76,6 @@
 			        <include>${war.warName}.war</include>
 			      </resource>
 			    </resources>
-			    <cmd>catalina.sh run</cmd>
            </configuration>
            <executions>
 			    <execution>
