@@ -7,4 +7,12 @@
    <password>password</password>
   </server> 
  </servers>
+ 
+ <profile>
+    <id>docker</id>
+       <properties>
+           <docker.host>https://localhost:2376</docker.host>
+           <docker.cert.path>/Users/me/.docker/machine/machines/default</docker.cert.path>
+       </properties>
+</profile>
 </settings>
