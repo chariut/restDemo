@@ -16,7 +16,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <start-class>Application</start-class>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <war.warName>restDemo</war.warName>
     <docker.registry>chariut</docker.registry>
   </properties>
@@ -67,7 +67,7 @@
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
-    		   <baseImage>tomcat:7-jre7</baseImage>
+    		   <baseImage>tomcat:8-jre8</baseImage>
     		   <env>
       				<JAVA_OPTS>-Djava.security.egd=file:/dev/chariut</JAVA_OPTS>
     		   </env>
