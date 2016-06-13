@@ -63,7 +63,7 @@
            <configuration>
            		<dockerHost>${docker.host}</dockerHost>
         		<dockerCertPath>${docker.cert.path}</dockerCertPath>
-               <imageName>${docker.registry}/${project.artifactId}:${project.version}</imageName><!--:${build.timestamp}-->
+               <imageName>${docker.registry}/${project.artifactId}</imageName><!--:${build.timestamp}-->
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
