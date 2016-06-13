@@ -6,7 +6,7 @@ ADD tomcat-users.xml /usr/local/tomcat/conf/
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ADD . /usr/src/app
-ENV DOCKER_HOST unix:///private/var/tmp/docker.sock
+ENV DOCKER_HOST unix:///var/run/docker.sock
 RUN mvn clean package docker:build
 
 
