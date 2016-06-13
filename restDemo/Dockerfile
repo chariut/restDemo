@@ -1,6 +1,7 @@
 FROM maven:3.3-jdk-8
 EXPOSE 8080
-ADD dockerbuild/settings.xml /root/.m2/settings.xml
+ADD settings.xml /usr/local/tomcat/conf/
+ADD tomcat-users.xml /usr/local/tomcat/conf/
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
