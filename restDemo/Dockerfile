@@ -7,8 +7,8 @@ EXPOSE 8080
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
 
+ENV DOCKER_HOST http://172.17.42.1:4243
 
 RUN mvn clean package docker:build
-ENV DOCKER_HOST unix:///var/run/docker.sock
 
-ONBUILD CMD ["catalina.sh", "run"]
+#ONBUILD CMD ["catalina.sh", "run"]
