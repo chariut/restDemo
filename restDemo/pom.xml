@@ -24,27 +24,29 @@
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
-	<plugin>
+    <plugin>
 		<groupId>com.spotify</groupId>
            <artifactId>docker-maven-plugin</artifactId>
-           <version>0.4.2</version>
+           <version>0.4.0</version>
            <configuration>
                <imageName>${docker.registry}/${project.artifactId}</imageName><!--:${build.timestamp}-->
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
-    		   <dockerDirectory>${project.basedir}/restDemo</dockerDirectory>
+    		   <env>
+      				<JAVA_OPTS>-Djava.security.egd=file:/dev/chariut</JAVA_OPTS>
+    		   </env>
                <!-- copy the service's jar file from target into the root directory of the image -->
                <resources>
 			      <resource>
-			        <targetPath>/</targetPath>
+			        <targetPath>/usr/local/tomcat/webapps</targetPath>
 			        <directory>${project.build.directory}</directory>
 			        <include>${war.warName}.war</include>
 			      </resource>
 			    </resources>
            </configuration>
     </plugin>
-    </plugins>
+     </plugins>
   <finalName>restDemo</finalName>  
   </build>
   <dependencies>
