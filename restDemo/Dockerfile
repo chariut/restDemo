@@ -5,5 +5,7 @@ WORKDIR /
 #RUN boot2docker shellinit
 # Prepare by downloading dependencies
 ADD pom.xml /pom.xml
+RUN pwd
+ADD src/main/docker/Dockerfile /src/main/docker/Dockerfile
 RUN mvn clean package docker:build
 
