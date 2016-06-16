@@ -7,8 +7,23 @@ ADD tomcat-users.xml /usr/local/tomcat/conf/
 
 ENV DOCKER_HOST http://172.17.42.1:4243
 RUN pwd
-RUN mvn clean package docker:build
-COPY restDemo.war /usr/local/tomcat/webapps/restDemo.war
+# Install maven
+RUN apt-get update  
+RUN apt-get install -y maven
+
+WORKDIR /code
+
+# Prepare by downloading dependencies
+ADD pom.xml /code/pom.xml  
+RUN ["mvn", "dependency:resolve"]  
+RUN ["mvn", "verify"]
+
+# Adding source, compile and package into a fat jar
+ADD src /code/src  
+RUN ["mvn", "package"]
+
+#RUN mvn clean package docker:build
+COPY target/restDemo.war /usr/local/tomcat/webapps/restDemo.war
 #CMD ["catalina.sh", "run"]
 
 
