@@ -7,11 +7,13 @@ ADD pom.xml /code/pom.xml
 RUN mvn clean package docker:build
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
-EXPOSE 8080
-#CMD ["catalina.sh", "run"]
-
 ENV DOCKER_HOST http://172.17.42.1:4243
+EXPOSE 8080
 RUN pwd
+CMD ["catalina.sh", "run"]
+
+
+
 # Install maven
 #--RUN apt-get update  
 #--RUN apt-get install -y maven

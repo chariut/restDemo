@@ -43,7 +43,7 @@
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
-    		   <entryPoint>["catalina.sh", "run"]</entryPoint>
+    		   <!--  entryPoint>["catalina.sh", "run"]</entryPoint>  -->
     		   <!--  to use a Dockerfile, a dockerDirectory element must be specified -->
 			   <!-- if dockerfile used, baseImage, maintainer, cmd and entryPoint elements will be ignored -->
     		   <!--  dockerDirectory>docker</dockerDirectory   -->
