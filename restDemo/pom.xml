@@ -17,6 +17,7 @@
   </properties>
   
   <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
      <plugin>
          <groupId>org.springframework.boot</groupId>
