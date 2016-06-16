@@ -1,10 +1,11 @@
 #--FROM tomcat:8-jre8
 
 FROM maven:3.3-jdk-8
-WORKDIR /code
+WORKDIR /
 # Prepare by downloading dependencies
-ADD pom.xml /code/pom.xml
+ADD pom.xml /pom.xml
 RUN mvn clean package docker:build
+COPY restDemo.war /usr/local/tomcat/webapps/restDemo.war
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
 ENV DOCKER_HOST http://172.17.42.1:4243

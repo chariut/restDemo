@@ -27,7 +27,8 @@
     <plugin>
 		<groupId>com.spotify</groupId>
            <artifactId>docker-maven-plugin</artifactId>
-           <version>0.4.0</version>
+           <version>0.4.2</version>
+           <!--  
            <executions>
                 <execution>
                     <phase>package</phase>
@@ -36,9 +37,9 @@
                     </goals>
                 </execution>
             </executions>
-           
+           -->
            <configuration>
-           	   <baseImage>tomcat:8-jre8</baseImage>
+           	   <baseImage>tomcat:latest</baseImage>
                <imageName>${docker.registry}/${project.artifactId}</imageName><!--:${build.timestamp}-->
                <imageTags>
       				<imageTag>${project.version}</imageTag>
@@ -53,7 +54,7 @@
                <!-- copy the service's jar file from target into the root directory of the image -->
                <resources>
 			      <resource>
-			        <targetPath>/usr/local/tomcat/webapps</targetPath>
+			        <targetPath>/</targetPath>
 			        <directory>${project.build.directory}</directory>
 			        <include>${war.warName}.war</include>
 			      </resource>
