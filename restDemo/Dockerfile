@@ -1,26 +1,28 @@
-FROM tomcat:8-jre8
+#--FROM tomcat:8-jre8
 
-#FROM maven:3.3-jdk-8
-EXPOSE 8080
+FROM maven:3.3-jdk-8
+RUN mvn clean package docker:build
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
+EXPOSE 8080
+#CMD ["catalina.sh", "run"]
 
 ENV DOCKER_HOST http://172.17.42.1:4243
 RUN pwd
 # Install maven
-RUN apt-get update  
-RUN apt-get install -y maven
+#--RUN apt-get update  
+#--RUN apt-get install -y maven
 
-WORKDIR /code
+#WORKDIR /code
 
 # Prepare by downloading dependencies
-ADD pom.xml /code/pom.xml  
-RUN ["mvn", "dependency:resolve"]  
-RUN ["mvn", "verify"]
+#--ADD pom.xml /code/pom.xml  
+#--RUN ["mvn", "dependency:resolve"]  
+#--RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
-ADD src /code/src  
-RUN ["mvn", "package"]
+#--ADD src /code/src  
+#--RUN ["mvn", "package"]
 
 #RUN mvn clean package docker:build
 #COPY target/restDemo.war /usr/local/tomcat/webapps/restDemo.war
