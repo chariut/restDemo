@@ -1,6 +1,9 @@
 #--FROM tomcat:8-jre8
 
 FROM maven:3.3-jdk-8
+WORKDIR /code
+# Prepare by downloading dependencies
+ADD pom.xml /code/pom.xml
 RUN mvn clean package docker:build
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
