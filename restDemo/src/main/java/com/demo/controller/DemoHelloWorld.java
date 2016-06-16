@@ -1,15 +1,17 @@
 package com.demo.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
  
 /*
  * author: chari
  * 
  */
- 
-@Controller
+
+@SpringBootApplication 
+@RestController
 public class DemoHelloWorld {
  
 	@RequestMapping("/welcome")
