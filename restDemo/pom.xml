@@ -42,6 +42,9 @@
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
+    		   <!--  to use a Dockerfile, a dockerDirectory element must be specified -->
+			   <!-- if dockerfile used, baseImage, maintainer, cmd and entryPoint elements will be ignored -->
+    		   <dockerDirectory>restDemo</dockerDirectory>
     		   <env>
       				<JAVA_OPTS>-Djava.security.egd=file:/dev/chariut</JAVA_OPTS>
     		   </env>

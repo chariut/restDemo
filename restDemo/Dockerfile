@@ -1,6 +1,6 @@
-#FROM tomcat:latest
+FROM tomcat:8-jre8
 
-FROM maven:3.3-jdk-8
+#FROM maven:3.3-jdk-8
 EXPOSE 8080
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
