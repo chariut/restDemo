@@ -23,7 +23,7 @@ ADD src /code/src
 RUN ["mvn", "package"]
 
 #RUN mvn clean package docker:build
-COPY target/restDemo.war /usr/local/tomcat/webapps/restDemo.war
+#COPY target/restDemo.war /usr/local/tomcat/webapps/restDemo.war
 #CMD ["catalina.sh", "run"]
 
 
