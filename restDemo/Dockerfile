@@ -2,13 +2,14 @@
 
 FROM maven:3.3-jdk-8
 WORKDIR /
+ENV DOCKER_HOST http://172.17.42.1:4243
 # Prepare by downloading dependencies
 ADD pom.xml /pom.xml
 RUN mvn clean package docker:build
 COPY restDemo.war /usr/local/tomcat/webapps/restDemo.war
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
-ENV DOCKER_HOST http://172.17.42.1:4243
+
 EXPOSE 8080
 RUN pwd
 CMD ["catalina.sh", "run"]
