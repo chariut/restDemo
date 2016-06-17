@@ -17,6 +17,16 @@
     <start-class>com.demo.controller.DemoHelloWorld</start-class>
   </properties>
   
+  <profiles>
+  	<profile>
+  		<id>docker</id>
+  		<properties>
+  			<docker.host>unix:///var/run/docker.sock</docker.host>
+  			<docker.cert.path>/Users/chariut/.docker/machine/machines/default</docker.cert.path>
+  		</properties>
+  	</profile>
+  </profiles>
+  
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
@@ -27,12 +37,14 @@
     <plugin>
 		<groupId>com.spotify</groupId>
            <artifactId>docker-maven-plugin</artifactId>
-           <version>0.3.7</version>
+           <version>0.4.10</version>
            <configuration>
                <imageName>${docker.registry}/${project.artifactId}</imageName><!--:${build.timestamp}-->
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
+    		   <dockerHost>${docker.host}</dockerHost>
+    		   <dockerCertPath>${docker.cert.path}</dockerCertPath>
     		   <!--  entryPoint>["catalina.sh", "run"]</entryPoint>  -->
     		   <!--  to use a Dockerfile, a dockerDirectory element must be specified -->
 			   <!-- if dockerfile used, baseImage, maintainer, cmd and entryPoint elements will be ignored -->
