@@ -9,7 +9,7 @@ WORKDIR /
 ADD pom.xml /pom.xml
 ADD settings.xml /settings.xml
 #ADD boot2docker/profile var/lib/boot2docker/profile
-ADD docker/docker etc/sysconfig/docker 
+ADD docker/docker /etc/sysconfig/docker 
 RUN pwd
 ADD src/main/docker/Dockerfile /src/main/docker/Dockerfile
 RUN mvn clean package docker:build
