@@ -1,5 +1,4 @@
 FROM frolvlad/alpine-oraclejdk8:slim
-ENV DOCKER_HOST="tcp://127.0.0.1:4243"
 VOLUME /tmp
 ADD restDemo.jar app.jar
 RUN sh -c 'touch /app.jar'

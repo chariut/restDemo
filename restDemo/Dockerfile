@@ -7,7 +7,7 @@ ENV DOCKER_HOST="unix:///var/run/docker.sock"
 #RUN boot2docker shellinit
 # Prepare by downloading dependencies
 ADD pom.xml /pom.xml
-ADD boot2docker/profile var/lib/boot2docker/profile 
+#ADD boot2docker/profile var/lib/boot2docker/profile 
 RUN pwd
 ADD src/main/docker/Dockerfile /src/main/docker/Dockerfile
 RUN mvn clean package docker:build
