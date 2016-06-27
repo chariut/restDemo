@@ -21,7 +21,7 @@
   	<profile>
   		<id>docker</id>
   		<properties>
-  			<docker.host>tcp://172.17.42.1:4243</docker.host>
+  			<docker.host>http://172.17.42.1:4243</docker.host>
   		</properties>
   	</profile>
   </profiles>
