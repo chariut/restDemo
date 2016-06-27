@@ -6,11 +6,11 @@ ENV DOCKER_HOST="tcp://172.17.42.1:4243"
 #ENV DOCKER_HOST tcp://192.168.59.103:2375  -- use boot2docker shellinit instead
 #RUN boot2docker shellinit
 # Prepare by downloading dependencies
-ADD pom.xml /pom.xml
-ADD settings.xml /settings.xml
+#ADD pom.xml /pom.xml
+#ADD settings.xml /settings.xml
 #ADD boot2docker/profile var/lib/boot2docker/profile
-ADD docker/docker /etc/sysconfig/docker 
+#ADD docker/docker /etc/sysconfig/docker 
 RUN pwd
-ADD src/main/docker/Dockerfile /src/main/docker/Dockerfile
+#ADD src/main/docker/Dockerfile /src/main/docker/Dockerfile
 RUN mvn clean package docker:build
 
