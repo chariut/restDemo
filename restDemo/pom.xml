@@ -21,8 +21,7 @@
   	<profile>
   		<id>docker</id>
   		<properties>
-  			<docker.host>unix:///var/run/docker.sock</docker.host>
-  			<docker.cert.path>/Users/chariut/.docker/machine/machines/default</docker.cert.path>
+  			<docker.host>tcp://172.17.42.1:4243</docker.host>
   		</properties>
   	</profile>
   </profiles>
@@ -44,7 +43,6 @@
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>
     		   <dockerHost>${docker.host}</dockerHost>
-    		   <dockerCertPath>${docker.cert.path}</dockerCertPath>
     		   <!--  entryPoint>["catalina.sh", "run"]</entryPoint>  -->
     		   <!--  to use a Dockerfile, a dockerDirectory element must be specified -->
 			   <!-- if dockerfile used, baseImage, maintainer, cmd and entryPoint elements will be ignored -->
