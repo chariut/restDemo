@@ -21,7 +21,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   	<profile>
   		<id>docker</id>
   		<properties>
-  			<docker.host>http://172.17.0.1:4243</docker.host>
+  			<docker.host>http://172.17.42.1:4243</docker.host>
   		</properties>
   	</profile>
   </profiles>
