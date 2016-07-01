@@ -17,16 +17,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <docker.registry>chariut</docker.registry>
     <start-class>com.demo.controller.DemoHelloWorld</start-class>
   </properties>
-  <!--  
   <profiles>
   	<profile>
   		<id>docker</id>
   		<properties>
-  			<docker.host>http://172.17.42.1:4243</docker.host>
+  			<docker.host>http://172.17.0.1:4243</docker.host>
   		</properties>
   	</profile>
   </profiles>
-  -->
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
@@ -39,7 +37,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
            <artifactId>docker-maven-plugin</artifactId>
            <version>0.4.10</version>
            <configuration>
-               <imageName>${docker.registry}/${project.artifactId}</imageName><!--:${build.timestamp}-->
+               <imageName>${docker.registry}/restdemo</imageName><!--:${build.timestamp}-->
                <imageTags>
       				<imageTag>${project.version}</imageTag>
     		   </imageTags>

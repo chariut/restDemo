@@ -8,5 +8,7 @@
 FROM tomcat:latest
 
 COPY restDemo.war /usr/local/tomcat/webapps/restDemo.war
+ADD settings.xml /usr/local/tomcat/conf/
+ADD tomcat-users.xml /usr/local/tomcat/conf/
 
 CMD ["catalina.sh", "run"]
