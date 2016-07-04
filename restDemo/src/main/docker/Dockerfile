@@ -6,9 +6,11 @@
 #ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
 FROM tomcat:latest
+RUN mkdir /vol
 
 COPY restDemo.war /usr/local/tomcat/webapps/restDemo.war
 ADD settings.xml /usr/local/tomcat/conf/
 ADD tomcat-users.xml /usr/local/tomcat/conf/
-
+COPY restDemo.war /vol/restDemo.war
+VOLUME /vol
 CMD ["catalina.sh", "run"]
