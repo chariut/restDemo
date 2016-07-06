@@ -161,7 +161,7 @@ public class DemoHelloWorld {
 	public ModelAndView helloChari() {
 		
 		
-		return new ModelAndView("welcome", "message", "Hi from Human!");
+		return new ModelAndView("welcome", "message", "Hi from Demo Team!");
 	}
 	
 	public static void main(String[] args) {
