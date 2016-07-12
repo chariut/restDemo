@@ -141,8 +141,26 @@ public class DemoHelloWorld {
 					"          </tr>"+
 					"        </table>";
 	
+	String socialNote = 
+			"<div id='Social'>"+
+					"<ul>"+
+					"<li class='Twitter'><a href='http://www.twitter.com/BoozAllen' target='_blank'>Twitter</a></li>"+
+					"<li class='Facebook'><a href='http://www.facebook.com/boozallen' target='_blank'>Facebook</a></li>"+
+					"<li class='LinkedIn'><a href='http://www.linkedin.com/company/booz-allen-hamilton/custom?trk=copro_tab' target='_blank' adhocenable='false'>LinkedIn</a></li>"+
+					"<li class='YouTube'><a href='http://www.youtube.com/boozallen' target='_blank'>YouTube</a></li>"+
+					"</ul>"+
+					"</div>";
+
 	String chariInfo;
  
+	public String getChariInfo() {
+		return chariInfo;
+	}
+
+	public void setChariInfo(String chariInfo) {
+		this.chariInfo = chariInfo;
+	}
+
 	@RequestMapping("/kansas")
 	public ModelAndView helloKansas() {
 		
@@ -161,7 +179,7 @@ public class DemoHelloWorld {
 	public ModelAndView helloChari() {
 		
 		
-		return new ModelAndView("welcome", "message", "Hi from Demo Team!");
+		return new ModelAndView("welcome", "message", "Hi from Chris");
 	}
 	
 	public static void main(String[] args) {
