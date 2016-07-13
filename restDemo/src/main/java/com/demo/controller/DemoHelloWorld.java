@@ -1,10 +1,13 @@
 package com.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import maven.git.GitRepositoryState;
  
 
 
@@ -181,6 +184,14 @@ public class DemoHelloWorld {
 		
 		return new ModelAndView("welcome", "message", "Hi from Chris");
 	}
+	
+	@Autowired
+	  GitRepositoryState gitRepoState;
+
+	  @RequestMapping("/status")
+	  public ModelAndView checkGitRevision()  {
+	    return new ModelAndView("welcome", "message", gitRepoState.toString());
+	  }
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoHelloWorld.class, args);
